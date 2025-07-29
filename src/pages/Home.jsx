@@ -7,7 +7,7 @@ import IndustryInquiry from "../components/IndustryInquiry";
 import AboutCompany from "../components/AboutCompany";
 import TeamCTA from "../components/TeamCTA";
 import Testimonials from "../components/Testimonials";
-import Careersatnerowink from "../components/Careersatnerowink.jsx";
+import Careersatnerowink from "../components/CareersatNerowink.jsx";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 

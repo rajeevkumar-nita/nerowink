@@ -1,4 +1,4 @@
-import CareersatNerowink from "../components/Careersatnerowink";
+import CareersatNerowink from "../components/CareersatNerowink";
 
 const Career = () => {
   return (
