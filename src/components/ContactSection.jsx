@@ -91,7 +91,7 @@ const ContactSection = () => {
                   <Mail className="w-4 h-4" /> hello@nerowink.com
                 </p>
                 <p className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" /> +1 (555) 123-4567
+                  <Phone className="w-4 h-4" /> +918102753070
                 </p>
                 <p className="flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" /> Live chat coming soon

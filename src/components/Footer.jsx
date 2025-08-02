@@ -27,15 +27,15 @@ const Footer = () => {
           <ul className="space-y-2 text-sm text-slate-300">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-blue-400" />
-              contact@nerowink.com
+              hello@nerowink.com
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-blue-400" />
-              +1 (555) 123-4567
+              +918102753070
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-blue-400" />
-              San Francisco, CA
+              Jaipur, Rajasthan
             </li>
           </ul>
 

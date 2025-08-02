@@ -11,7 +11,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const IndustrySolutions = [
   {
-    icon: <FaBuilding className="text-white w-6 h-6" />,
+    icon: <FaBuilding className="text-white w-5 h-5" />,
     tag: "200+ companies",
     title: "Enterprise Solutions",
     description:
@@ -22,10 +22,10 @@ const IndustrySolutions = [
       "Custom Workflows",
       "Enterprise Integrations",
     ],
-    color: "bg-blue-600",
+    color: "from-blue-600 to-blue-400",
   },
   {
-    icon: <FaIndustry className="text-white w-6 h-6" />,
+    icon: <FaIndustry className="text-white w-5 h-5" />,
     tag: "150+ manufacturers",
     title: "Manufacturing",
     description:
@@ -36,10 +36,10 @@ const IndustrySolutions = [
       "Supply Chain",
       "Compliance Tracking",
     ],
-    color: "bg-green-600",
+    color: "from-green-600 to-green-400",
   },
   {
-    icon: <FaShoppingCart className="text-white w-6 h-6" />,
+    icon: <FaShoppingCart className="text-white w-5 h-5" />,
     tag: "300+ retailers",
     title: "Retail Management",
     description:
@@ -50,10 +50,10 @@ const IndustrySolutions = [
       "Customer Analytics",
       "Multi-channel Sales",
     ],
-    color: "bg-purple-600",
+    color: "from-purple-600 to-purple-400",
   },
   {
-    icon: <FaTruck className="text-white w-6 h-6" />,
+    icon: <FaTruck className="text-white w-5 h-5" />,
     tag: "100+ distributors",
     title: "Distribution & Logistics",
     description:
@@ -64,10 +64,10 @@ const IndustrySolutions = [
       "Real-time Tracking",
       "Warehouse Management",
     ],
-    color: "bg-orange-600",
+    color: "from-orange-600 to-orange-400",
   },
   {
-    icon: <FaBriefcase className="text-white w-6 h-6" />,
+    icon: <FaBriefcase className="text-white w-5 h-5" />,
     tag: "250+ service firms",
     title: "Professional Services",
     description:
@@ -78,10 +78,10 @@ const IndustrySolutions = [
       "Resource Planning",
       "Client Portals",
     ],
-    color: "bg-teal-600",
+    color: "from-teal-600 to-teal-400",
   },
   {
-    icon: <FaUsers className="text-white w-6 h-6" />,
+    icon: <FaUsers className="text-white w-5 h-5" />,
     tag: "500+ SMBs",
     title: "Small & Medium Business",
     description:
@@ -92,7 +92,7 @@ const IndustrySolutions = [
       "Essential Features",
       "Affordable Pricing",
     ],
-    color: "bg-indigo-600",
+    color: "from-indigo-600 to-indigo-400",
   },
 ];
 
@@ -100,8 +100,7 @@ const IndustrySolutionsComponent = () => {
   const sliderRef = useRef(null);
   const intervalRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-
-  const cardWidth = 384 + 24; // width + gap
+  const cardWidth = 320 + 16;
 
   const scrollNext = () => {
     const slider = sliderRef.current;
@@ -123,77 +122,83 @@ const IndustrySolutionsComponent = () => {
 
   useEffect(() => {
     if (!isHovered) {
-      intervalRef.current = setInterval(scrollNext, 2000);
+      intervalRef.current = setInterval(scrollNext, 3000);
     }
     return () => clearInterval(intervalRef.current);
   }, [isHovered]);
 
   return (
-    <section className="py-16 px-4 bg-blue-50 overflow-hidden">
+    <section className="py-10 px-4 bg-blue-50 overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
-        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
           Industry Solutions
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-3 mb-2">
           Tailored for Your Industry
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto">
-          NeroWink adapts to your specific industry needs with specialized features,
-          workflows, and integrations designed for optimal performance.
+        <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+          NeroWink adapts to your specific industry needs with specialized features and workflows.
         </p>
       </div>
 
-      <div className="relative mt-12 max-w-7xl mx-auto group">
+      <div className="relative mt-10 max-w-7xl mx-auto group">
         <button
           onClick={scrollPrev}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full z-10"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full z-10"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
+
         <div
           ref={sliderRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="flex space-x-6 overflow-x-auto scrollbar-hide pb-4 scroll-smooth snap-x"
+          className="flex space-x-4 overflow-x-auto scrollbar-hide pb-2 scroll-smooth snap-x"
         >
           {IndustrySolutions.map((industry, idx) => (
             <div
               key={idx}
-              className="snap-start shrink-0 w-96 bg-white border rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+              className="snap-start shrink-0 w-[85vw] sm:w-80 bg-white border rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.04] hover:border-gray-400"
             >
-              <div className={`p-6 rounded-t-xl ${industry.color}`}>
+              <div
+                className={`p-3 rounded-t-xl bg-gradient-to-r ${industry.color}`}
+              >
                 <div className="flex items-center justify-between">
-                  <div className="bg-white/30 p-3 rounded-xl">{industry.icon}</div>
-                  <span className="bg-white/30 text-white text-sm px-3 py-1 rounded-full font-medium">
+                  <div className="bg-white/20 backdrop-blur-sm p-2 rounded-md">
+                    {industry.icon}
+                  </div>
+                  <span className="bg-white/20 backdrop-blur-sm text-white text-[11px] px-2 py-0.5 rounded-full font-semibold">
                     {industry.tag}
                   </span>
                 </div>
-                <h3 className="text-white text-xl font-bold mt-6">{industry.title}</h3>
+                <h3 className="text-white text-base font-semibold mt-2">
+                  {industry.title}
+                </h3>
               </div>
-              <div className="p-6">
-                <p className="text-gray-600 mb-4 group-hover:text-yellow-600 transition-colors">
+              <div className="p-3">
+                <p className="text-gray-600 text-sm line-clamp-2 mb-2">
                   {industry.description}
                 </p>
-                <ul className="space-y-2 text-gray-800">
+                <ul className="space-y-1 text-gray-800 text-sm">
                   {industry.points.map((point, i) => (
                     <li key={i} className="flex items-center">
                       <span className="text-green-500 mr-2">✔</span>
-                      <span className="font-medium group-hover:text-yellow-600 transition-colors">
-                        {point}
-                      </span>
+                      <span className="font-medium">{point}</span>
                     </li>
                   ))}
                 </ul>
-                <button className="mt-6 w-full border-2 border-transparent px-4 py-2 rounded-md text-center font-semibold text-gray-800 transition duration-300 hover:bg-gray-900 hover:text-white">
-                  Learn More →
+                <button className="mt-3 w-full flex items-center justify-between text-xs border border-gray-200 px-3 py-1.5 rounded-md font-semibold text-gray-700 hover:bg-gray-900 hover:text-white transition group">
+                  <span>Learn More</span>
+                  <span className="transform group-hover:translate-x-1 transition">→</span>
                 </button>
               </div>
             </div>
           ))}
         </div>
+
         <button
           onClick={scrollNext}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full z-10"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full z-10"
         >
           <ChevronRight className="w-5 h-5" />
         </button>

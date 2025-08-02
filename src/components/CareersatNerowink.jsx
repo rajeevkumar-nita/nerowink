@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 import { Carousel } from "react-responsive-carousel";
@@ -23,7 +22,7 @@ const CareersatNerowink = () => {
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
-    setMenuOpen(false); // Close mobile menu on click
+    setMenuOpen(false);
   };
 
   useEffect(() => {
@@ -59,7 +58,7 @@ const CareersatNerowink = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 relative">
-      {/* Responsive Header */}
+      {/* Header */}
       <div className="sticky top-0 z-30 bg-white shadow-md">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center space-x-2">
@@ -70,16 +69,12 @@ const CareersatNerowink = () => {
               NeroWink
             </span>
           </div>
-
-          {/* Hamburger for Mobile */}
           <button
             className="md:hidden text-2xl text-gray-700"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
-
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-4 text-sm font-medium">
             {sectionIds.map((id) => (
               <button
@@ -102,8 +97,6 @@ const CareersatNerowink = () => {
             </Link>
           </div>
         </div>
-
-        {/* Mobile Dropdown Nav */}
         {menuOpen && (
           <div className="md:hidden flex flex-col gap-3 px-4 pb-4 text-sm border-t">
             {sectionIds.map((id) => (
@@ -127,19 +120,17 @@ const CareersatNerowink = () => {
       </div>
 
       {/* Page Content */}
-      <div className="max-w-6xl mx-auto px-4 py-12 space-y-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-20">
         {/* Open Positions */}
         <div id="open-positions" className="scroll-mt-24">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
             Open Positions
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
             We’re hiring across roles including Frontend & Backend Engineering,
-            UI/UX Design, Marketing, and Product Management. If you're a
-            self-starter who loves solving real-world problems, we’d love to
-            have you on board.
+            UI/UX Design, Marketing, and Product Management.
           </p>
-          <div className="grid md:grid-cols-3 text-center gap-4 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 text-center gap-6 mt-8">
             <div>
               <h3 className="text-4xl font-bold text-blue-700">
                 <CountUp end={20} duration={2} />+
@@ -172,38 +163,17 @@ const CareersatNerowink = () => {
               className="rounded-xl shadow-lg max-w-3xl mx-auto"
             >
               {[
-                [
-                  "NeroWink provides a perfect balance of creativity, innovation and mentorship.",
-                  "Priya, Frontend Developer",
-                ],
-                [
-                  "The collaborative culture and constant learning at NeroWink has truly elevated my career.",
-                  "Aman, Product Designer",
-                ],
-                [
-                  "The mentoring sessions helped me transition from a fresher to a confident backend developer.",
-                  "Sanya, Backend Developer",
-                ],
-                [
-                  "At NeroWink, I’ve had the freedom to experiment and innovate without fear.",
-                  "Arjun, UI/UX Designer",
-                ],
-                [
-                  "The work-life balance here is the best I’ve experienced in my career so far.",
-                  "Meera, Marketing Lead",
-                ],
-                [
-                  "From day one, I felt like I was part of something meaningful and impactful.",
-                  "Rajat, Product Manager",
-                ],
-                [
-                  "Supportive team, exciting challenges, and lots of learning opportunities.",
-                  "Divya, QA Engineer",
-                ],
+                ["NeroWink provides a perfect balance of creativity, innovation and mentorship.", "Priya, Frontend Developer"],
+                ["The collaborative culture and constant learning at NeroWink has truly elevated my career.", "Aman, Product Designer"],
+                ["The mentoring sessions helped me transition from a fresher to a confident backend developer.", "Sanya, Backend Developer"],
+                ["At NeroWink, I’ve had the freedom to experiment and innovate without fear.", "Arjun, UI/UX Designer"],
+                ["The work-life balance here is the best I’ve experienced in my career so far.", "Meera, Marketing Lead"],
+                ["From day one, I felt like I was part of something meaningful and impactful.", "Rajat, Product Manager"],
+                ["Supportive team, exciting challenges, and lots of learning opportunities.", "Divya, QA Engineer"],
               ].map(([quote, name], idx) => (
-                <div key={idx} className="px-6 py-10 bg-white">
-                  <p className="italic text-gray-700">"{quote}"</p>
-                  <p className="mt-4 font-semibold text-blue-600">— {name}</p>
+                <div key={idx} className="px-4 sm:px-6 py-8 sm:py-10 bg-white">
+                  <p className="italic text-gray-700 text-sm sm:text-base">"{quote}"</p>
+                  <p className="mt-4 font-semibold text-blue-600 text-sm sm:text-base">— {name}</p>
                 </div>
               ))}
             </Carousel>
@@ -212,12 +182,11 @@ const CareersatNerowink = () => {
 
         {/* Benefits */}
         <div id="benefits" className="scroll-mt-24">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700">Benefits</h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            At NeroWink, we believe that people are our most valuable asset. Our
-            work culture is built on trust, flexibility, and well-being.
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">Benefits</h2>
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+            At NeroWink, we believe people are our greatest asset. Our work culture is built on trust and wellness.
           </p>
-          <ul className="list-disc list-inside space-y-2 text-gray-700 pl-4">
+          <ul className="list-disc list-inside space-y-2 text-gray-700 pl-4 text-sm sm:text-base">
             <li>🌍 Global Projects with Local Impact</li>
             <li>⏰ Flexible Work Culture</li>
             <li>💙 Work-Life Balance & Wellness</li>
@@ -228,10 +197,10 @@ const CareersatNerowink = () => {
 
         {/* EVP & Culture */}
         <div id="employee-value-proposition-&-culture" className="scroll-mt-24">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
             Employee Value Proposition & Culture
           </h2>
-          <ul className="list-none space-y-4 text-gray-700 leading-relaxed text-base pl-2">
+          <ul className="list-none space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
             <li>💼 We build more than products — we build purpose.</li>
             <li>👩‍💻 You'll grow through mentoring and real impact.</li>
             <li>🚀 We solve meaningful problems — not just code.</li>
@@ -242,13 +211,13 @@ const CareersatNerowink = () => {
 
         {/* Professional Development */}
         <div id="professional-development" className="scroll-mt-24">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-blue-700">
             Professional Development
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">
             We’re invested in your growth from first day to leadership.
           </p>
-          <div className="grid md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {[
               { skill: "Tech Skills", value: "90%" },
               { skill: "Leadership", value: "80%" },
@@ -265,20 +234,11 @@ const CareersatNerowink = () => {
               </div>
             ))}
           </div>
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
             {[
-              {
-                title: "Mentorship",
-                desc: "1-on-1 guidance from experts to level up your journey.",
-              },
-              {
-                title: "Certifications",
-                desc: "We sponsor growth via Udemy, Coursera, AWS, etc.",
-              },
-              {
-                title: "Knowledge Sharing",
-                desc: "TechTalks, Hackathons, and open community culture.",
-              },
+              { title: "Mentorship", desc: "1-on-1 guidance from experts to level up your journey." },
+              { title: "Certifications", desc: "We sponsor growth via Udemy, Coursera, AWS, etc." },
+              { title: "Knowledge Sharing", desc: "TechTalks, Hackathons, and open community culture." },
             ].map(({ title, desc }, idx) => (
               <div
                 key={idx}
@@ -290,7 +250,7 @@ const CareersatNerowink = () => {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center mt-10">
+          <div className="flex flex-wrap gap-3 justify-center mt-10">
             {["Hackathon Winner", "Top Performer", "Team Mentor", "Certified Pro"].map(
               (badge, idx) => (
                 <span
@@ -321,7 +281,7 @@ const CareersatNerowink = () => {
       {/* Floating Apply Button */}
       <a
         href="mailto:nerowink@gmail.com"
-        className="fixed bottom-6 right-6 z-30 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full shadow-lg transition"
+        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-30 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full shadow-lg transition"
       >
         Apply Now
       </a>
